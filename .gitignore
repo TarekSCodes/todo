@@ -1,0 +1,25 @@
+# Maven-Target-Ordner (Build-Ausgabe)
+target/
+
+# Maven-Statusdateien
+*.lst
+
+# IDE-spezifische Dateien und Einstellungen
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Klassen-Dateien (Java-Bytecode)
+*.class
+
+# Log-Dateien
+*.log
+
+# Betriebssystem-spezifische Dateien
+.DS_Store
+Thumbs.db
+
+# Java-Module generierte Dateien
+module-info.class
