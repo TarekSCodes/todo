@@ -28,7 +28,7 @@
             <HBox>
                <children>
 
-                  <TextField fx:id="todoentry" prefHeight="51.0" prefWidth="360.0">
+                  <TextField fx:id="todoentry" onKeyPressed="#enterPressed" prefHeight="51.0" prefWidth="360.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
