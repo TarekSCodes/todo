@@ -10,11 +10,11 @@ public class TodoModel {
     private final LocalDateTime createdAt;
     
     
-    public TodoModel(int todoID, String todotext) {
+    public TodoModel(int todoID, String description, boolean todoDone, LocalDateTime createdAt) {
         this.todoID = todoID;
-        this.description = todotext;
-        this.todoDone = false;
-        this.createdAt = LocalDateTime.now();
+        this.description = description;
+        this.todoDone = todoDone;
+        this.createdAt = createdAt;
     }
     
     public int getTodoID() {

@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 public class PrimaryController {
 
     private final List<TodoModel> todoList = new ArrayList<>();
+    DBConnector dbConnector = DBConnector.getINSTANCE();
     Alert alertDeleteTodo = new Alert(AlertType.CONFIRMATION);
     
 
@@ -51,13 +52,16 @@ public class PrimaryController {
     @FXML
     public void addTodo() {
         
-        String todoText = todoentry.getText();
+        String description = todoentry.getText();
 
-        if (validateUserInput(todoText)) {
+        if (validateUserInput(description)) {
 
-            todoList.add(new TodoModel(todoText));
+            dbConnector.addTodoToDB(description);
 
             listview.getItems().clear();
+            todoList.clear();
+
+            dbConnector.getTodosFromDB().forEach(todoList::add);
 
             for (TodoModel todo : todoList) {
 

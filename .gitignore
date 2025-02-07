@@ -23,3 +23,7 @@ Thumbs.db
 
 # Java-Module generierte Dateien
 module-info.class
+
+# Datenbank
+todo.db
+todo.db-journal
