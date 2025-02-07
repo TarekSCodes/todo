@@ -42,7 +42,7 @@
                </VBox.margin>
             </HBox>
 
-                  <ListView fx:id="listview" onMouseClicked="#deleteTodo" />
+                  <ListView fx:id="listview" editable="true" onMouseClicked="#deleteTodo" />
             
          </children>
          <padding>

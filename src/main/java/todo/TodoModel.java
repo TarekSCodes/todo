@@ -2,6 +2,7 @@ package todo;
 
 public class TodoModel {
 
+    private int todoID;
     private final String description;
     private boolean todoDone;
 
