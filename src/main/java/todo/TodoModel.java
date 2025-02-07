@@ -1,14 +1,28 @@
 package todo;
 
+import java.time.LocalDateTime;
+
 public class TodoModel {
 
-    private int todoID;
+    private final int todoID;
     private final String description;
     private boolean todoDone;
-
-    public TodoModel(String todotext) {
+    private final LocalDateTime createdAt;
+    
+    
+    public TodoModel(int todoID, String todotext) {
+        this.todoID = todoID;
         this.description = todotext;
         this.todoDone = false;
+        this.createdAt = LocalDateTime.now();
+    }
+    
+    public int getTodoID() {
+        return todoID;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
     public String getDescription() {
