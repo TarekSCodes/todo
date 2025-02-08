@@ -26,12 +26,17 @@ public class PrimaryController {
     
 
     @FXML
-    private TextField todoentry;
+    private TextField todoEntryField;
     @FXML
     private ListView<String> listview;
     @FXML
     private RadioMenuItem alwaysOnTopButton;
 
+    @FXML
+    public void initialize() {
+        
+        initializeTodoListView();
+    }
 
     /**
      * Liefert die aktuelle Stage (das Hauptfenster)
@@ -41,7 +46,7 @@ public class PrimaryController {
      */
     public Stage getStage() {
 
-        return (Stage) todoentry.getScene().getWindow();
+        return (Stage) todoEntryField.getScene().getWindow();
 
     }
 
@@ -52,23 +57,28 @@ public class PrimaryController {
     @FXML
     public void addTodo() {
         
-        String description = todoentry.getText();
+        String description = todoEntryField.getText();
 
         if (validateUserInput(description)) {
 
             dbConnector.addTodoToDB(description);
 
-            listview.getItems().clear();
-            todoList.clear();
-
-            dbConnector.getTodosFromDB().forEach(todoList::add);
-
-            for (TodoModel todo : todoList) {
-
-                listview.getItems().add(todo.getDescription());
-            }
+            initializeTodoListView();
         }
-        todoentry.clear();
+        todoEntryField.clear();
+    }
+
+    private void initializeTodoListView() {
+
+        listview.getItems().clear();
+        todoList.clear();
+
+        dbConnector.getTodosFromDB().forEach(todoList::add);
+
+        for (TodoModel todo : todoList) {
+
+            listview.getItems().add(todo.getDescription());
+        }
     }
 
     /**
