@@ -12,8 +12,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -78,19 +76,6 @@ public class PrimaryController {
         for (TodoModel todo : todoList) {
 
             listview.getItems().add(todo.getDescription());
-        }
-    }
-
-    /**
-     * Erkennt bei aktivem Textfeld das Drücken von Tasten, ist die
-     * gedrückte Taste die Enter-Taste löst sie die addTodo() Methode aus.
-     * @param event
-     */
-    @FXML
-    public void enterPressed(KeyEvent event) {
-
-        if (event.getCode() == KeyCode.ENTER) {
-            addTodo();
         }
     }
 
